@@ -17,7 +17,7 @@ export class IncompleteCircle {
         let diff = Math.abs(startQuad - endQuad); // gets the number of quadrants between end and start
         if(diff){ // if difference is higher than zero, calculates interpolated quadrants
             let quadrants = [startQuad];
-            let i = startQuad + 1;
+            let i = startQuad;
             while(diff){
                 quadrants.push(i % 4);
                 diff--;
