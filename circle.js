@@ -36,7 +36,7 @@ export class Circle {
     *   Transform degrees into radians
     *
     */
-    getRadians = function(degrees) {
+    getRadians = function (degrees) {
         return degrees * Math.PI / 180;
     }
 }
