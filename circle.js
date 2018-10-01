@@ -24,11 +24,11 @@ export class Circle {
     *
     *   Gets the quadrant of the angle by coercing the angle into the acceptable range, followed by the division
     * of the boundary angle of each quadrant ( 90° ) and call of Math.ceil function, so all numbers can be put into
-    * [1 ; 4] range, except 0° and 360° that may be treated as an exception
+    * [1 ; 4] range
     *
     */
     static getQuadrant (angle) {
-      return Math.ceil(Circle.getNatural(angle) / 90);
+      return Math.floor(Circle.getNatural(angle) / 90) + 1;
     }
     
    /**
