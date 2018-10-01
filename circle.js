@@ -30,4 +30,13 @@ export class Circle {
     static getQuadrant (angle) {
       return Math.ceil(Circle.getNatural(angle) / 90);
     }
+    
+   /**
+    *
+    *   Transform degrees into radians
+    *
+    */
+    getRadians = function(degrees) {
+        return degrees * Math.PI / 180;
+    }
 }
