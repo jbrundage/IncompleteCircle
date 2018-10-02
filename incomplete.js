@@ -29,6 +29,17 @@ export class IncompleteCircle {
     getDimensions () {
         if(this.start === this.end) return null;
         const quadrants = this.allQuadrants();
+        const quantity = quadrants.length;
+        if(quantity === 1){
+            
+        }
+        if(quantity === 2){
+        }
+        if(quantity === 3){
+        }
+        if(quantity === 4){
+            return [2 * this.radius, 2 * this.radius];
+        }
         if(Math.abs(this.end - this.start) === 90){
             const originS = this.start % 90;
             const originE = this.end % 90;
