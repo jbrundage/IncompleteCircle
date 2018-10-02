@@ -36,7 +36,7 @@ export class Circle {
     *   Transform degrees into radians
     *
     */
-    getRadians (degrees) {
+    static getRadians (degrees) {
         return degrees * Math.PI / 180;
     }
 }
