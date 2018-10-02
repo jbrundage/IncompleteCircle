@@ -13,8 +13,8 @@ export class IncompleteCircle {
     *
     */
     allQuadrants () {
-        const startQuad = Circle.getQuadrant(this.start) || 1; // coerces 0 to 1st quadrant
-        const endQuad = Circle.getQuadrant(this.end) || 1; // corces 0 to 1st quadrant
+        const startQuad = Circle.getQuadrant(this.start);
+        const endQuad = Circle.getQuadrant(this.end);
         let quadrants = [startQuad];
         if(( Circle.getNatural(this.start) <= Circle.getNatural(this.end) ) && ( startQuad === endQuad )) return quadrants;
         let i = ( startQuad + 1 );
