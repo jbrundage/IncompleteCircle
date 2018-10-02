@@ -30,6 +30,8 @@ export class IncompleteCircle {
         if(this.start === this.end) return null;
         const quadrants = this.allQuadrants();
         const quantity = quadrants.length;
+        const start = quadrants[0];
+        const radius = this.radius;
         if(quantity === 1){
             
         }
@@ -38,13 +40,33 @@ export class IncompleteCircle {
         if(quantity === 3){
         }
         if(quantity === 4){
-            return [2 * this.radius, 2 * this.radius];
+            if(start === 1){
+                const firstAngle = Circle.getRadians(this.start);
+                const lastAngle = Circle.getRadians(this.end);
+                const rightWing = Math.max(Math.cos(firstAngle), Math.cos(lastAngle));
+                return [radius * ( 1 + rightWing ), 2 * radius];
+            }
+            if(start === 2){
+                const firstAngle = Circle.getRadians(this.start);
+                const lastAngle = Circle.getRadians(this.end);
+                const northWing = Math.max(Math.sin(firstAngle), Math.sin(lastAngle));
+                return [2 * radius, radius * ( 1 + northWing )];
+            }
+            if(start === 3){
+                const firstAngle = Circle.getRadians(this.start);
+                const lastAngle = Circle.getRadians(this.end);
+                const leftWing = Math.max(Math.abs(Math.cos(firstAngle)), Math.cos(Math.sin(lastAngle)));
+                return [radius * ( 1 + leftWing ), 2 * radius];
+            }
+            if(start === 4){
+                const firstAngle = Circle.getRadians(this.start);
+                const lastAngle = Circle.getRadians(this.end);
+                const southWing = Math.max(Math.abs(Math.sin(firstAngle)), Math.sin(Math.sin(lastAngle)));
+                return [2 * radius, radius * ( 1 + southWing )];
+            }
         }
-        if(Math.abs(this.end - this.start) === 90){
-            const originS = this.start % 90;
-            const originE = this.end % 90;
-            const untranslated = [this.radius * ( Math.cos(Circle.getRadians(originS)) + Math.cos(Circle.getRadians(OriginE))), this.radius];
-            //incomplete
+        if(quantity === 5){
+            return [2 * radius, 2 * radius];
         }
     }
 }
